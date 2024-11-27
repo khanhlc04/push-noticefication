@@ -37,6 +37,8 @@ messaging.onBackgroundMessage((payload) => {
 messaging.onMessage((payload) => {
   console.log('Message received. ', payload);
 
+  console.log(1234);
+
   new Notification(payload.data.title, {
     body: payload.data.body,
     icon: 'https://img.icons8.com/emoji/100/warning-emoji.png'
