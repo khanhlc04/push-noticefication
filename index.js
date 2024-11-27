@@ -26,12 +26,6 @@ function requestPermission() {
     Notification.requestPermission().then((permission) => {
       if (permission === 'granted') {
         console.log('Notification permission granted.');
-        
-        // Tạo và hiển thị thông báo
-        new Notification('Permission granted!', {
-          body: 'You can now receive notifications.',
-          icon: 'https://via.placeholder.com/100'
-        });
       } else {
         console.log('Notification permission denied.');
       }

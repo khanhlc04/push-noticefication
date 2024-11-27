@@ -5,14 +5,13 @@ importScripts("https://www.gstatic.com/firebasejs/11.0.2/firebase-messaging-comp
 // your app's Firebase config object.
 // https://firebase.google.com/docs/web/setup#config-object
 firebase.initializeApp({
-  apiKey: 'api-key',
-  authDomain: 'project-id.firebaseapp.com',
-  databaseURL: 'https://project-id.firebaseio.com',
-  projectId: 'project-id',
-  storageBucket: 'project-id.appspot.com',
-  messagingSenderId: 'sender-id',
-  appId: 'app-id',
-  measurementId: 'G-measurement-id',
+  apiKey: "AIzaSyBSDrODupgI0MzvLIcqQPgm2U4OgrW5VQM",
+  authDomain: "disaster-a495d.firebaseapp.com",
+  projectId: "disaster-a495d",
+  storageBucket: "disaster-a495d.firebasestorage.app",
+  messagingSenderId: "999451644442",
+  appId: "1:999451644442:web:d1a863948b04a0927777a3",
+  measurementId: "G-0F58QYY2N7"
 });
 
 // Retrieve an instance of Firebase Messaging so that it can handle background
@@ -29,8 +28,17 @@ messaging.onBackgroundMessage((payload) => {
     const notificationTitle = payload.data.title;
     const notificationOptions = {
       body: payload.data.body,
-      icon: 'https://via.placeholder.com/100'
+      icon: 'https://img.icons8.com/emoji/100/warning-emoji.png'
     };
   
     self.registration.showNotification(notificationTitle, notificationOptions);
+});
+
+messaging.onMessage((payload) => {
+  console.log('Message received. ', payload);
+
+  new Notification(payload.data.title, {
+    body: payload.data.body,
+    icon: 'https://img.icons8.com/emoji/100/warning-emoji.png'
+  });
 });
