@@ -53,3 +53,12 @@ getToken(messaging, { vapidKey: 'BD8qmoU_jP1DmohUNKcvJmfsvywLFhnO8eYpOR6AUijA27M
   console.log('An error occurred while retrieving token. ', err);
   // ...
 });
+
+onMessage(messaging, (payload) => {
+  console.log('Message received. ', payload);
+
+  new Notification(payload.data.title, {
+    body: payload.data.body,
+    icon: 'https://img.icons8.com/emoji/100/warning-emoji.png'
+  });
+});
